@@ -62,8 +62,10 @@ npm run start -w @bez-ipfs/contracts
 Next, run the dApp cli App. In another terminal session run:
 
 ```shell
-npm run start -w @bez-ipfs/web-dapp
+npm run start -w @bez-ipfs/dapp
 ```
+The cli app prompts for a file directory like so: `/home/talabi/Pictures/success.png`
+then the app reads this file, stores it in IPFS node then sends the returned CID to the Storage smart contract
 
 ### 5. Running tests
 
