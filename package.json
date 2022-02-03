@@ -1,0 +1,19 @@
+{
+  "name": "@bez-ipfs/monorepo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "Talabi",
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "start": "npm run start --workspaces --if-present"
+  },
+  "workspaces": [
+    "modules/contracts",
+    "modules/dapp"
+  ],
+  "license": "MIT"
+}
