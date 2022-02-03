@@ -21,8 +21,6 @@
   },
   "dependencies": {
     "ethers": "^5.5.4",
-    "ipfs-core": "^0.14.0",
-    "ipfs-http-client": "^56.0.0",
-    "web3": "^1.7.0"
+    "ipfs-core": "^0.14.0"
   }
 }

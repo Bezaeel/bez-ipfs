@@ -1,5 +1,21 @@
 {
-  "name": "hardhat-project",
+  "name": "@bez-ipfs/contracts",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "run-p start:node deploy:local",
+    "start:node": "npx hardhat node",
+    "deploy:local": "npx hardhat run --network localhost scripts/deploy.ts",
+    "test": "npx hardhat test",
+    "build": "npx hardhat clean && npx hardhat compile && tsc",
+    "eslint": "npx eslint '**/*.{js,ts}'",
+    "eslint:fix": "npx eslint '**/*.{js,ts}' --fix",
+    "solhint": "npx solhint 'contracts/**/*.sol'",
+    "solhint:fix": "npx solhint 'contracts/**/*.sol' --fix",
+    "prettier": "npx prettier '**/*.{json,sol,md}' --check",
+    "prettier:fix": "npx prettier '**/*.{json,sol,md}' --write",
+    "lint": "run-p eslint solhint prettier",
+    "lint:fix": "run-s eslint:fix solhint:fix prettier:fix"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-etherscan": "^2.1.8",
