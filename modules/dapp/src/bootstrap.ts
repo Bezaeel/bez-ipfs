@@ -3,18 +3,12 @@ import { Greeter__factory as GreeterFactory, Storage__factory as StorageFactory 
 import * as IPFS from 'ipfs-core';
 import * as fs from 'fs';
 
-export class bootstrap {
+export class Bootstrap {
     private provider = new ethers.providers.JsonRpcProvider('http://127.0.0.1:8545/');
     private StorageContractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
-    
-    ipfs: IPFS.IPFS;
-
-    constructor(_ipfs: IPFS.IPFS) {
-        this.ipfs = _ipfs;
-    }
 
     // file upload
-    uploadFile(directory: string) {
+    uploadFile(directory: string): Buffer {
         try {
             const data = fs.readFileSync(directory);
             return data;
@@ -31,7 +25,8 @@ export class bootstrap {
     }
 
     async addFileToIPFS(file: Buffer) {
-        let added = await this.ipfs.add({
+        const ipfs = await IPFS.create();
+        let added = await ipfs.add({
             path: 'uploads',
             content: file,
         }, { wrapWithDirectory: true });
