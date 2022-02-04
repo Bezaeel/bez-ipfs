@@ -33,7 +33,7 @@ export class Bootstrap {
 
         return added;
     }
-    // save to contract
+    
     async saveCID(cid: string) {
         try {
             console.log("cid::::", cid);
